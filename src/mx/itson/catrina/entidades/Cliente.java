@@ -3,7 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package mx.itson.catrina.negocio;
+package mx.itson.catrina.entidades;
+
+import com.google.gson.Gson;
+import java.awt.List;
 
 /**
  *
@@ -13,9 +16,20 @@ public class Cliente {
    
     private String nombre;
     private String rfc;
-    private String direccion;
+    private String domicilio;
     private String ciudad;
     private String cp;
+    
+    
+    public Cliente deserializar(String json){
+        Cliente cliente = new Cliente();
+        try{
+            cliente = new Gson().fromJson(json, Cliente.class);
+        }catch(Exception ex){
+            System.err.print("Ocurrio un error: " + ex.getMessage());
+        }
+        return cliente;
+    }
 
     public String getNombre() {
         return nombre;
@@ -33,14 +47,6 @@ public class Cliente {
         this.rfc = rfc;
     }
 
-    public String getDireccion() {
-        return direccion;
-    }
-
-    public void setDireccion(String direccion) {
-        this.direccion = direccion;
-    }
-
     public String getCiudad() {
         return ciudad;
     }
@@ -56,5 +62,16 @@ public class Cliente {
     public void setCp(String cp) {
         this.cp = cp;
     }
+
+    public String getDomicilio() {
+        return domicilio;
+    }
+
+    public void setDomicilio(String domicilio) {
+        this.domicilio = domicilio;
+    }
+
+   
+    
     
 }
