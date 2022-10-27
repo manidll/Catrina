@@ -6,7 +6,7 @@
 package mx.itson.catrina.entidades;
 
 import com.google.gson.Gson;
-import java.awt.List;
+
 import java.util.Date;
 
 /**

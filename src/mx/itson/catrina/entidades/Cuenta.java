@@ -6,8 +6,8 @@
 package mx.itson.catrina.entidades;
 
 import com.google.gson.Gson;
-import com.sun.security.ntlm.Client;
-import java.awt.List;
+import com.google.gson.JsonSyntaxException;
+
 
 /**
  *
@@ -15,28 +15,36 @@ import java.awt.List;
  */
 public class Cuenta {
     
-    private int cuenta;
-    private int clabe;
+    private String cuenta;
+    private String clabe;
     private String moneda;
     private String producto;
+    private Cliente cliente;
     
     
      public Cuenta deserializar(String json){
         Cuenta cuenta = new Cuenta();
         try{
             cuenta = new Gson().fromJson(json, Cuenta.class);
-        }catch(Exception ex){
+        }catch(JsonSyntaxException ex){
             System.err.print("Ocurrio un error: " + ex.getMessage());
         }
         return cuenta;
     }
-   
 
-    public int getClabe() {
+    public String getCuenta() {
+        return cuenta;
+    }
+
+    public void setCuenta(String cuenta) {
+        this.cuenta = cuenta;
+    }
+
+    public String getClabe() {
         return clabe;
     }
 
-    public void setClabe(int clabe) {
+    public void setClabe(String clabe) {
         this.clabe = clabe;
     }
 
@@ -48,14 +56,6 @@ public class Cuenta {
         this.moneda = moneda;
     }
 
-    public int getCuenta() {
-        return cuenta;
-    }
-
-    public void setCuenta(int cuenta) {
-        this.cuenta = cuenta;
-    }
-
     public String getProducto() {
         return producto;
     }
@@ -63,6 +63,19 @@ public class Cuenta {
     public void setProducto(String producto) {
         this.producto = producto;
     }
+
+    public Cliente getCliente() {
+        return cliente;
+    }
+
+    public void setCliente(Cliente cliente) {
+        this.cliente = cliente;
+    }
+   
+
+ 
+
+   
 
     
     

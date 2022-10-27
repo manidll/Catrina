@@ -6,7 +6,7 @@
 package mx.itson.catrina.entidades;
 
 import com.google.gson.Gson;
-import java.awt.List;
+
 
 /**
  *
@@ -14,6 +14,7 @@ import java.awt.List;
  */
 public class Cliente {
    
+    private String codigo;
     private String nombre;
     private String rfc;
     private String domicilio;
@@ -69,6 +70,14 @@ public class Cliente {
 
     public void setDomicilio(String domicilio) {
         this.domicilio = domicilio;
+    }
+
+    public String getCodigo() {
+        return codigo;
+    }
+
+    public void setCodigo(String codigo) {
+        this.codigo = codigo;
     }
 
    
