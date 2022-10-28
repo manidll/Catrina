@@ -21,6 +21,7 @@ public class Movimiento {
     private int tipo;
     
     
+    
      public Movimiento deserializar(String json){
         Movimiento movimiento = new Movimiento();
         try{

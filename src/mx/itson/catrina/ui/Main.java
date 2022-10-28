@@ -5,15 +5,16 @@
  */
 package mx.itson.catrina.ui;
 
+
 import java.io.File;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
+
+
 import javax.swing.JFileChooser;
 import javax.swing.table.DefaultTableModel;
+import mx.itson.catrina.entidades.CuentaContable;
 
-import mx.itson.catrina.entidades.Cliente;
-import mx.itson.catrina.entidades.Cuenta;
-import mx.itson.catrina.entidades.Movimiento;
 
 /**
  *
@@ -229,41 +230,38 @@ public class Main extends javax.swing.JFrame {
                 String contenido = new String(archivoBytes, StandardCharsets.UTF_8);
                 
                 
-                Cuenta cuenta = new Cuenta().deserializar(contenido);
+                CuentaContable cuenta = new CuentaContable().deserializar(contenido);
                 
                 lblNombre.setText(cuenta.getCliente().getNombre().toUpperCase());
                 lblCuentaContable.setText(cuenta.getProducto().toUpperCase());
                 
                 
-                DefaultTableModel modeloCliente = (DefaultTableModel) tblDatosCliente.getModel();
+             DefaultTableModel modeloCliente = (DefaultTableModel) tblDatosCliente.getModel();
                 modeloCliente.setRowCount(0);
                 
-                modeloCliente.addRow(new Object[]{
-                "RFC: " + cuenta.getCliente().getRfc()});
+                modeloCliente.addRow(new Object[]{"RFC: " + cuenta.getCliente().getRfc()});
                 
-                modeloCliente.addRow(new Object[]{
-                cuenta.getCliente().getDomicilio()});
+                modeloCliente.addRow(new Object[]{cuenta.getCliente().getDomicilio()});
                 
-                modeloCliente.addRow(new Object[]{
-                cuenta.getCliente().getCiudad()});
+                modeloCliente.addRow(new Object[]{cuenta.getCliente().getCiudad()});
                 
-                modeloCliente.addRow(new Object[]{
-                cuenta.getCliente().getCp()});
+                modeloCliente.addRow(new Object[]{cuenta.getCliente().getCp()});
                 
-                DefaultTableModel modeloCuenta = (DefaultTableModel) tblDatosCuenta.getModel();
+             DefaultTableModel modeloCuenta = (DefaultTableModel) tblDatosCuenta.getModel();
                 modeloCuenta.setRowCount(0);
                 
-               modeloCuenta.addRow(new Object[]{
-               "CUENTA: " + cuenta.getCuenta()});
-               
-               modeloCuenta.addRow(new Object[]{
-               "CLABE: " + cuenta.getClabe()});
-               
-               modeloCuenta.addRow(new Object[]{
-               "MONEDA: " + cuenta.getMoneda()});
+                modeloCuenta.addRow(new Object[]{"CUENTA: " + cuenta.getCuenta()});
+
+                modeloCuenta.addRow(new Object[]{"CLABE: " + cuenta.getClabe()});
+
+                modeloCuenta.addRow(new Object[]{"MONEDA: " + cuenta.getMoneda()});
+
+             DefaultTableModel modeloMovimiento = (DefaultTableModel) tblMovimientos.getModel();
+               modeloMovimiento.setRowCount(0);
                
                 
-                
+               
+               
             }
             
         }catch (Exception ex){

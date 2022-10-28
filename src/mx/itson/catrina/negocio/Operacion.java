@@ -5,10 +5,14 @@
  */
 package mx.itson.catrina.negocio;
 
+
+
 /**
  *
  * @author mane0
  */
 public class Operacion {
+    
+    
     
 }

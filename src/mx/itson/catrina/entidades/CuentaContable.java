@@ -6,14 +6,14 @@
 package mx.itson.catrina.entidades;
 
 import com.google.gson.Gson;
-import com.google.gson.JsonSyntaxException;
+
 
 
 /**
  *
  * @author mane0
  */
-public class Cuenta {
+public class CuentaContable {
     
     private String cuenta;
     private String clabe;
@@ -22,14 +22,14 @@ public class Cuenta {
     private Cliente cliente;
     
     
-     public Cuenta deserializar(String json){
-        Cuenta cuenta = new Cuenta();
+    public CuentaContable deserializar (String json){
+        CuentaContable cuentaDes = new CuentaContable();
         try{
-            cuenta = new Gson().fromJson(json, Cuenta.class);
-        }catch(JsonSyntaxException ex){
+            cuentaDes = new Gson().fromJson(json, CuentaContable.class);
+        }catch(Exception ex){
             System.err.print("Ocurrio un error: " + ex.getMessage());
         }
-        return cuenta;
+        return cuentaDes;
     }
 
     public String getCuenta() {
@@ -40,13 +40,7 @@ public class Cuenta {
         this.cuenta = cuenta;
     }
 
-    public String getClabe() {
-        return clabe;
-    }
-
-    public void setClabe(String clabe) {
-        this.clabe = clabe;
-    }
+    
 
     public String getMoneda() {
         return moneda;
@@ -71,13 +65,14 @@ public class Cuenta {
     public void setCliente(Cliente cliente) {
         this.cliente = cliente;
     }
-   
 
- 
+    public String getClabe() {
+        return clabe;
+    }
 
-   
-
-    
+    public void setClabe(String clabe) {
+        this.clabe = clabe;
+    }
     
     
 }
