@@ -9,8 +9,6 @@ package mx.itson.catrina.ui;
 import java.io.File;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
-
-
 import javax.swing.JFileChooser;
 import javax.swing.table.DefaultTableModel;
 import mx.itson.catrina.entidades.CuentaContable;
@@ -41,7 +39,7 @@ public class Main extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jComboBox1 = new javax.swing.JComboBox<>();
         jLabel2 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        jSeleccionar = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         jScrollPane3 = new javax.swing.JScrollPane();
@@ -63,10 +61,10 @@ public class Main extends javax.swing.JFrame {
 
         jLabel2.setText("Seleccione el archivo a cargar:");
 
-        jButton1.setText("Seleccionar...");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        jSeleccionar.setText("Seleccionar...");
+        jSeleccionar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                jSeleccionarActionPerformed(evt);
             }
         });
 
@@ -165,7 +163,7 @@ public class Main extends javax.swing.JFrame {
                         .addGap(125, 125, 125)
                         .addComponent(jLabel2)
                         .addGap(18, 18, 18)
-                        .addComponent(jButton1)
+                        .addComponent(jSeleccionar)
                         .addGap(0, 54, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addContainerGap()
@@ -195,7 +193,7 @@ public class Main extends javax.swing.JFrame {
                     .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel1)
                     .addComponent(jLabel2)
-                    .addComponent(jButton1))
+                    .addComponent(jSeleccionar))
                 .addGap(18, 18, 18)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(40, 40, 40)
@@ -216,7 +214,7 @@ public class Main extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void jSeleccionarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jSeleccionarActionPerformed
        
         try{
             JFileChooser fileChooser = new JFileChooser();
@@ -259,6 +257,8 @@ public class Main extends javax.swing.JFrame {
              DefaultTableModel modeloMovimiento = (DefaultTableModel) tblMovimientos.getModel();
                modeloMovimiento.setRowCount(0);
                
+               
+               
                 
                
                
@@ -268,7 +268,7 @@ public class Main extends javax.swing.JFrame {
             System.err.print("Ocurrio un error: " + ex.getMessage());
         }
         
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_jSeleccionarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -306,7 +306,6 @@ public class Main extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -316,6 +315,7 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JScrollPane jScrollPane6;
+    private javax.swing.JButton jSeleccionar;
     private javax.swing.JLabel lblCuentaContable;
     private javax.swing.JLabel lblNombre;
     private javax.swing.JTable tblDatosCliente;
