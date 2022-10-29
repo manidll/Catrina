@@ -18,7 +18,7 @@ import javax.swing.JFileChooser;
 import javax.swing.table.DefaultTableModel;
 import mx.itson.catrina.entidades.Cuenta;
 import mx.itson.catrina.entidades.Movimiento;
-import mx.itson.catrina.enumeradores.Tipo;
+
 
 
 /**
@@ -223,7 +223,12 @@ public class Main extends javax.swing.JFrame {
 
     private void jSeleccionarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jSeleccionarActionPerformed
        
+        
+        
         try{
+            
+            
+            
             JFileChooser fileChooser = new JFileChooser();
             fileChooser.setCurrentDirectory(new File(System.getProperty("user.home")));
             
@@ -234,7 +239,7 @@ public class Main extends javax.swing.JFrame {
                 
                 String contenido = new String(archivoBytes, StandardCharsets.UTF_8);
                 
-                
+               
                 Cuenta cuenta = new Cuenta().deserializar(contenido);
                 
                 lblNombre.setText(cuenta.getCliente().getNombre().toUpperCase());
@@ -263,6 +268,8 @@ public class Main extends javax.swing.JFrame {
 
              DefaultTableModel modeloMovimiento = (DefaultTableModel) tblMovimientos.getModel();
                modeloMovimiento.setRowCount(0);
+               
+               cuenta.getMovimientos().sort((mov1, mov2) -> mov1.getFecha().compareTo(mov2.getFecha()));
                
                Locale local = new Locale("es", "MX");
                NumberFormat formatoCantidad = NumberFormat.getCurrencyInstance(local);
