@@ -7,6 +7,7 @@ package mx.itson.catrina.entidades;
 
 import com.google.gson.Gson;
 import java.util.List;
+import mx.itson.catrina.enumeradores.Tipo;
 
 
 
@@ -14,7 +15,7 @@ import java.util.List;
  *
  * @author mane0
  */
-public class CuentaContable {
+public class Cuenta {
     
     private String cuenta;
     private String clabe;
@@ -22,12 +23,12 @@ public class CuentaContable {
     private String producto;
     private Cliente cliente;
     private List< Movimiento> movimientos;
-
+    private Tipo tipo;
     
-    public CuentaContable deserializar (String json){
-        CuentaContable cuentaDes = new CuentaContable();
+    public Cuenta deserializar (String json){
+        Cuenta cuentaDes = new Cuenta();
         try{
-            cuentaDes = new Gson().fromJson(json, CuentaContable.class);
+            cuentaDes = new Gson().fromJson(json, Cuenta.class);
         }catch(Exception ex){
             System.err.print("Ocurrio un error: " + ex.getMessage());
         }
@@ -82,6 +83,14 @@ public class CuentaContable {
 
     public void setMovimientos(List< Movimiento> movimientos) {
         this.movimientos = movimientos;
+    }
+
+    public Tipo getTipo() {
+        return tipo;
+    }
+
+    public void setTipo(Tipo tipo) {
+        this.tipo = tipo;
     }
     
     

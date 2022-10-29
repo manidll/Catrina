@@ -9,9 +9,16 @@ package mx.itson.catrina.ui;
 import java.io.File;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
+import java.text.DateFormat;
+import java.text.NumberFormat;
+import java.text.SimpleDateFormat;
+import java.util.Locale;
+
 import javax.swing.JFileChooser;
 import javax.swing.table.DefaultTableModel;
-import mx.itson.catrina.entidades.CuentaContable;
+import mx.itson.catrina.entidades.Cuenta;
+import mx.itson.catrina.entidades.Movimiento;
+import mx.itson.catrina.enumeradores.Tipo;
 
 
 /**
@@ -228,7 +235,7 @@ public class Main extends javax.swing.JFrame {
                 String contenido = new String(archivoBytes, StandardCharsets.UTF_8);
                 
                 
-                CuentaContable cuenta = new CuentaContable().deserializar(contenido);
+                Cuenta cuenta = new Cuenta().deserializar(contenido);
                 
                 lblNombre.setText(cuenta.getCliente().getNombre().toUpperCase());
                 lblCuentaContable.setText(cuenta.getProducto().toUpperCase());
@@ -257,11 +264,24 @@ public class Main extends javax.swing.JFrame {
              DefaultTableModel modeloMovimiento = (DefaultTableModel) tblMovimientos.getModel();
                modeloMovimiento.setRowCount(0);
                
+               Locale local = new Locale("es", "MX");
+               NumberFormat formatoCantidad = NumberFormat.getCurrencyInstance(local);
                
+               DateFormat formato = new SimpleDateFormat("dd/MM/yyy");
                
+               /*+for (Movimiento m : cuenta.getMovimientos()){
+                   if(cuenta.getTipo() == Tipo.DEPOSITO){
+                        modeloMovimiento.addRow(new Object[] {formato.format(m.getFecha()), m.getDescripcion(), formatoCantidad.format(m.getCantidad())});
+                   }else if (cuenta.getTipo() == Tipo.RETIRO){
+                        modeloMovimiento.addRow(new Object[] {formato.format(m.getFecha()), m.getDescripcion(), formatoCantidad.format(m.getCantidad())});
+                   }
                 
-               
-               
+               }*/
+              
+               for(Movimiento m : cuenta.getMovimientos()){
+                   modeloMovimiento.addRow(new Object[] {formato.format(m.getFecha()), m.getDescripcion(), formatoCantidad.format(m.getCantidad())});
+               }
+
             }
             
         }catch (Exception ex){

@@ -18,7 +18,7 @@ public class Movimiento {
     private Date fecha;
     private String descripcion;
     private double cantidad;
-    private int tipo;
+    
     
     
     
@@ -56,12 +56,6 @@ public class Movimiento {
         this.cantidad = cantidad;
     }
 
-    public int getTipo() {
-        return tipo;
-    }
-
-    public void setTipo(int tipo) {
-        this.tipo = tipo;
-    }
+    
     
 }
