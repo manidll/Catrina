@@ -4,16 +4,16 @@
  * and open the template in the editor.
  */
 package mx.itson.catrina.entidades;
-
 import com.google.gson.Gson;
 import java.util.List;
-import mx.itson.catrina.enumeradores.Tipo;
+
+
 
 
 
 /**
- *
- * @author mane0
+ *  
+ * @author Emmanuel Rivas Quintana
  */
 public class Cuenta {
     
@@ -23,7 +23,12 @@ public class Cuenta {
     private String producto;
     private Cliente cliente;
     private List< Movimiento> movimientos;
-    private Tipo tipo;
+    
+    /**
+     * convierte una cadena JSON en un objeto
+     * @param json busca el formato JSON
+     * @return cuentaDes
+     */
     
     public Cuenta deserializar (String json){
         Cuenta cuentaDes = new Cuenta();
@@ -35,16 +40,23 @@ public class Cuenta {
         return cuentaDes;
     }
 
+    /**
+     *  get and set Cuenta
+     * @return numero de cuenta
+     */
     public String getCuenta() {
         return cuenta;
     }
 
+    
     public void setCuenta(String cuenta) {
         this.cuenta = cuenta;
     }
-
     
-
+    /**
+     *  get and set moneda
+     * @return tipo de moneda
+     */
     public String getMoneda() {
         return moneda;
     }
@@ -52,7 +64,11 @@ public class Cuenta {
     public void setMoneda(String moneda) {
         this.moneda = moneda;
     }
-
+    
+    /**
+     * get and set producto
+     * @return Titulo de tabla
+     */
     public String getProducto() {
         return producto;
     }
@@ -61,6 +77,10 @@ public class Cuenta {
         this.producto = producto;
     }
 
+    /**
+     * get and set cliente
+     * @return propiedades de la clase cliente.
+     */
     public Cliente getCliente() {
         return cliente;
     }
@@ -69,6 +89,10 @@ public class Cuenta {
         this.cliente = cliente;
     }
 
+    /**
+     * get and set clabe
+     * @return numero de clabe.
+     */
     public String getClabe() {
         return clabe;
     }
@@ -77,6 +101,10 @@ public class Cuenta {
         this.clabe = clabe;
     }
 
+    /**
+     * get and set lista movimiento
+     * @return enumeradores de la clase Tipo.
+     */
     public List< Movimiento> getMovimientos() {
         return movimientos;
     }
@@ -85,13 +113,8 @@ public class Cuenta {
         this.movimientos = movimientos;
     }
 
-    public Tipo getTipo() {
-        return tipo;
-    }
+ 
 
-    public void setTipo(Tipo tipo) {
-        this.tipo = tipo;
-    }
-    
+   
     
 }

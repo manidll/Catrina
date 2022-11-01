@@ -4,7 +4,6 @@
  * and open the template in the editor.
  */
 package mx.itson.catrina.enumeradores;
-
 import com.google.gson.annotations.SerializedName;
 
 /**
@@ -14,8 +13,8 @@ import com.google.gson.annotations.SerializedName;
 public enum Tipo {
     
     @SerializedName("1")
-    RETIRO, 
+    DEPOSITO, 
     @SerializedName("2")
-    DEPOSITO
+    RETIRO
     
 }

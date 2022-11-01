@@ -4,10 +4,9 @@
  * and open the template in the editor.
  */
 package mx.itson.catrina.entidades;
-
-import com.google.gson.Gson;
-
 import java.util.Date;
+import mx.itson.catrina.enumeradores.Tipo;
+
 
 /**
  *
@@ -18,20 +17,13 @@ public class Movimiento {
     private Date fecha;
     private String descripcion;
     private double cantidad;
+    private Tipo tipo;
     
-    
-    
-    
-     public Movimiento deserializar(String json){
-        Movimiento movimiento = new Movimiento();
-        try{
-            movimiento = new Gson().fromJson(json, Movimiento.class);
-        }catch(Exception ex){
-            System.err.print("Ocurrio un error: " + ex.getMessage());
-        }
-        return movimiento;
-    }
 
+    /**
+     * Get and set Fecha
+     * @return lista de fechas.
+     */
     public Date getFecha() {
         return fecha;
     }
@@ -40,6 +32,10 @@ public class Movimiento {
         this.fecha = fecha;
     }
 
+    /**
+     * Get and set Descripcion
+     * @return descripciones de movimientos.
+     */
     public String getDescripcion() {
         return descripcion;
     }
@@ -48,6 +44,10 @@ public class Movimiento {
         this.descripcion = descripcion;
     }
 
+    /**
+     * Get and set Cantidad
+     * @return Lista de cantidades dentro del json
+     */
     public double getCantidad() {
         return cantidad;
     }
@@ -56,6 +56,22 @@ public class Movimiento {
         this.cantidad = cantidad;
     }
 
+    /**
+     * Get and set Tipo
+     * @return enumeradores de la clase Tipo
+     */
+    public Tipo getTipo() {
+        return tipo;
+    }
+
+    public void setTipo(Tipo tipo) {
+        this.tipo = tipo;
+    }
+
+    
+
+
+   
     
     
 }

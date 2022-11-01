@@ -5,12 +5,11 @@
  */
 package mx.itson.catrina.entidades;
 
-import com.google.gson.Gson;
 
 
 /**
  *
- * @author mane0
+ * @author Emmanuel Rivas Quintana
  */
 public class Cliente {
    
@@ -21,17 +20,11 @@ public class Cliente {
     private String ciudad;
     private String cp;
     
-    
-    public Cliente deserializar(String json){
-        Cliente cliente = new Cliente();
-        try{
-            cliente = new Gson().fromJson(json, Cliente.class);
-        }catch(Exception ex){
-            System.err.print("Ocurrio un error: " + ex.getMessage());
-        }
-        return cliente;
-    }
 
+    /**
+     * Get and set Nombre
+     * @return Nombre del cliente.
+     */
     public String getNombre() {
         return nombre;
     }
@@ -40,6 +33,10 @@ public class Cliente {
         this.nombre = nombre;
     }
 
+    /**
+     * Get and set RFC
+     * @return RFC del cliente
+     */
     public String getRfc() {
         return rfc;
     }
@@ -48,6 +45,10 @@ public class Cliente {
         this.rfc = rfc;
     }
 
+    /**
+     * Get and set Ciudad
+     * @return Ciudad donde recide el cliente.
+     */
     public String getCiudad() {
         return ciudad;
     }
@@ -56,6 +57,10 @@ public class Cliente {
         this.ciudad = ciudad;
     }
 
+    /**
+     * Get and set CP
+     * @return CP del cliente.
+     */
     public String getCp() {
         return cp;
     }
@@ -64,6 +69,10 @@ public class Cliente {
         this.cp = cp;
     }
 
+    /**
+     * Get and set Domicilio
+     * @return Domicilio del cliente.
+     */
     public String getDomicilio() {
         return domicilio;
     }
